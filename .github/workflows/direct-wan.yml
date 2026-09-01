@@ -1,0 +1,18 @@
+name: JBL direct WAN reachability witness
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  direct_tcp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: One bounded TCP connection attempt
+        env:
+          TARGET_HOST: ${{ secrets.TARGET_HOST }}
+        run: python direct_wan_witness.py
