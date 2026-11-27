@@ -1,19 +1,28 @@
 [Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
 
-# JBL QuantumENGINE / QuantumServer research by Juri
+# JBL QuantumENGINE / QuantumServer security research
 
-**Juri (Juri-Halveth) · Updated 27 November 2026**
+**Research and finder credit: Juri Janovski — HALVETH**  
+Documentation updated: 27 November 2026 · **CERT@VDE case #642251**
 
-[Full research report, German](REPORT.md) · [Evidence and source index](evidence/index.json) · [Related WAN workflow](https://github.com/Juri-Halveth/jbl-wan-proof)
+[Full report, German](REPORT.md) · [Documented correspondence](evidence/CERT-VDE-CORRESPONDENCE.md) · [Technical evidence index](evidence/index.json)
 
-This repository contains the existing test clients and retained records from Juri's investigation of network control associated with JBL QuantumENGINE / QuantumServer.
+## Main finding and vendor coordination
 
-On 1 September 2026, a GitHub-hosted client recorded `microphone.gain` changing **75 → 74 → 75**, with separate read requests confirming both the change and restoration. The client used an **owner-created temporary tunnel and supplied pairing material**. A separate direct TCP connection attempt to port **57120** timed out after **8009 ms**, without a connection or application payload.
+The core report concerns **local IPC access by a non-elevated Windows process and reuse of existing owner pairing state**. It is distinct from the supplementary external tunnel and direct TCP experiments preserved in this repository.
 
-The evidence includes the successful write-and-restore run, a read-only run, a failed intermediate run and the direct TCP test. The retained logs were reviewed for this publication; the tests were not rerun against a device.
+The supplied CERT@VDE correspondence records:
 
-These records alone do not establish a pairing bypass, default Internet exposure or a breach of the intended privileges of a paired client. They do not identify an exact affected QuantumENGINE or QuantumServer build. Separate readback means another RPC in the same client, not a physical microphone measurement.
+- **24 September 2026:** CERT@VDE relayed that engineering had validated the issue, confirmed **QuantumENGINE 2.7.8** as affected and agreed with the proposed severity assessment. The supplied text contains **no numerical severity score**. Analysis of additional versions was ongoing.
+- The same message described a corrective update under development, then **planned for December 2026**. This is the historical release plan, not confirmation that a fix shipped.
+- **19 October 2026:** CERT@VDE relayed HARMAN's decision that the submission did not qualify for a reward under its bounty program. A separate reply confirmed that Juri would be named as the finder in the advisory.
+- **Latest supplied reply:** undated and following the 22 October exchange, it says the advisory was still unpublished and had no concrete publication date. Advisory and CVE links were to follow publication. No assigned CVE identifier or published advisory link appears in the supplied text.
 
-JBL's release notes reviewed on 27 November list **QuantumENGINE 2.9.4, dated 3 November 2026**. No fix statement specifically matching this report was found in the reviewed release notes or CERT@VDE's HARMAN list. Whether version 2.9.4 is affected was not tested. The full report preserves this distinction and attributes the supplied disclosure chronology and payment statement to Juri.
+## Supplementary technical records
 
-`external_witness.py` implements the paired read/write-and-restore experiment. `direct_wan_witness.py` attempts one TCP connection without application payload. The `evidence/` files are extracted historical receipts with an explicitly marked pairing-fingerprint redaction and links to their source runs.
+A GitHub-hosted client recorded **75 → 74 → 75** for `microphone.gain`, including readback after the change and restoration, using an owner-created tunnel and supplied pairing material. A separate direct TCP attempt to port **57120** timed out after **8009 ms**, without a connection or application payload.
+
+These logs document those particular experiments. Their limitations must not be generalized into a rejection of the separately reported, engineering-validated local IPC finding. They do not establish an unpaired Internet attack or a physical microphone measurement.
+
+The correspondence reports a static comparison with 2.8.6, while explicitly leaving a clean runtime retest open. No new device or network test was performed for this documentation update; current-release impact and fix status are not inferred from the September logs.
+

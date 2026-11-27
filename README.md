@@ -1,30 +1,30 @@
 [Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
 
-# JBL QuantumENGINE / QuantumServer – Forschung von Juri
+# JBL QuantumENGINE: bestätigte Schwachstelle – Juri Janovski / HALVETH
 
-**Juri (Juri-Halveth) · Stand 27. November 2026**
+**Finder: Juri Janovski — HALVETH · Vorgang: CERT@VDE #642251 · Stand: 27. November 2026**
 
-Hier liegen Quellcode und erhaltene Prüfbelege zu Juris Untersuchung der Netzwerksteuerung im Umfeld von JBL QuantumENGINE / QuantumServer.
+**CERT@VDE bestätigte am 24. September 2026, dass das Engineering-Team den gemeldeten Fehler validiert hat und JBL QuantumENGINE 2.7.8 betroffen ist.** Die vorgeschlagene Schweregradeinschätzung wurde akzeptiert. Ein Korrekturupdate war damals in Entwicklung und für Dezember 2026 geplant.
 
-## Einstieg
+**[Vollständiger Forschungsbericht](REPORT.md)** · **[Bestätigung und Korrespondenz](evidence/CERT-VDE-CORRESPONDENCE.md)** · [Korrektur der ersten Fassung](ERRATUM-20261127.md)
 
-**[Vollständiger Forschungsbericht](REPORT.md)** · **[Belege und Quellenindex](evidence/index.json)** · [Ergänzender WAN-Prüfablauf](https://github.com/Juri-Halveth/jbl-wan-proof)
+## Der Schwachstellenkern
 
-Ein GitHub-Prüfclient protokollierte am 1. September 2026 den Gain-Verlauf **75 → 74 → 75**, einschließlich separater Leseabfragen nach Änderung und Wiederherstellung. Er verwendete einen vom Eigentümer eingerichteten Tunnel und bereitgestelltes Pairing-Material. Ein separater direkter TCP-Versuch zu Port **57120** endete nach **8009 ms im Timeout**.
+Die koordinierte Meldung beschreibt einen lokalen Prozess ohne erhöhte Rechte, der mit einem frei angegebenen Clientnamen JBLs Remote-Control-IPC öffnen, Pairing- und Gerätemetadaten lesen und den vorhandenen Pairing-Zustand des Eigentümers zur Änderung einer Headset-Einstellung verwenden konnte. Änderung, Rücklesen, Wiederherstellung und erneutes Rücklesen sind Bestandteil des gemeldeten Befunds.
 
-Das Paket enthält den erfolgreichen Lauf, einen reinen Leseversuch, einen fehlgeschlagenen Zwischenlauf und die direkte Verbindungsprobe. Die Skripte sind vorhanden; ihre historischen Aufzeichnungen wurden für diesen Bericht gelesen und nicht erneut gegen ein Gerät ausgeführt.
+## Anerkennung und Prämie
 
-## Sicherheitsstatus
+Am **19. Oktober 2026** sagte CERT@VDE die Finder-Nennung im Advisory zu. Die separate Nachricht desselben Tages lehnt eine Belohnung unter HARMANs Bug-Bounty-Programm ab. **Die Prämienentscheidung widerruft die technische Bestätigung nicht.**
 
-Der gemeldete Sicherheitsverdacht wird zusammen mit seinen tatsächlichen Versuchsbedingungen veröffentlicht. Die erhaltenen Belege weisen allein keinen Zugriff ohne Pairing und keine standardmäßige Internet-Erreichbarkeit nach. Eine genaue betroffene QuantumENGINE-/QuantumServer-Version fehlt in den historischen Receipts.
+Eine spätere undatierte Antwort nach Juris Anfrage vom 22. Oktober bezeichnet das Advisory als noch unveröffentlicht, ohne konkreten Termin. Ein Advisory- und CVE-Link wurde für die Veröffentlichung angekündigt; eine konkrete CVE-Nummer steht nicht in der vorgelegten Kette.
 
-Die am 27. November geprüften Herstellerhinweise nennen **QuantumENGINE 2.9.4 vom 3. November 2026**. Eine ausdrücklich diesem Befund zugeordnete Fixbestätigung wurde darin nicht gefunden; die aktuelle Version wurde hier nicht praktisch geprüft. Der [Bericht](REPORT.md) dokumentiert diesen offenen Status und den von Juri bereitgestellten Meldungsverlauf.
+## Ergänzende technische Belege
 
-## Inhalt
+Die vorhandenen Tunnel-/TCP-Skripte untersuchen zusätzliche Fragen: Ein Tunnelversuch mit bereitgestellten Pairingdaten dokumentiert `microphone.gain` als **75 → 74 → 75** mit separaten Leseabfragen. Ein direkter TCP-Versuch auf Port 57120 endet nach **8009 ms im Timeout**. Diese Ergebnisse ersetzen die lokale IPC-Untersuchung nicht.
 
-- `external_witness.py`: Leseversuch sowie begrenzte Änderung und Wiederherstellung mit bereitgestelltem Pairing-Material.
-- `direct_wan_witness.py`: einzelner TCP-Verbindungsversuch ohne Anwendungspayload.
-- `.github/workflows/`: vorhandene manuell gestartete Prüfabläufe.
-- `evidence/`: vier aus den historischen Logs extrahierte Receipts und Quellenindex. Die markierte Redaktion betrifft den Pairing-Fingerprint; Ziel- und Pairingwerte werden nicht ergänzt.
+- [Vier erhaltene Laufbelege und Quellenindex](evidence/index.json).
+- `external_witness.py`: zusätzlicher Tunnelversuch mit bereitgestelltem Pairing-Material.
+- `direct_wan_witness.py`: einzelne direkte TCP-Verbindungsprobe.
+- [Ergänzender WAN-Workflow](https://github.com/Juri-Halveth/jbl-wan-proof).
 
-Die vollständige Einordnung, Quellstände, Grenzen und Herstellerlinks stehen im [Forschungsbericht](REPORT.md).
+**Version 2.7.8 ist bestätigt betroffen.** Für 2.8.6 beschreibt die Meldung lediglich einen statischen Vergleich; ein Runtime-Retest blieb offen. Die aktuellen Herstellerhinweise nennen 2.9.4, ohne in den gelesenen Quellen einen diesem Fall eindeutig zugeordneten Fix zu benennen. Der [Bericht](REPORT.md) trennt bestätigte Betroffenheit, damalige Fixplanung und aktuellen ungeprüften Versionsstand.

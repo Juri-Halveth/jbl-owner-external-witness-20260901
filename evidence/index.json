@@ -1,9 +1,9 @@
 {
-  "schema": "halveth.jbl.public-evidence-index.v1",
+  "schema": "halveth.jbl.public-evidence-index.v2",
   "prepared_on": "2026-11-27",
-  "research_credit": "Juri (Juri-Halveth)",
+  "research_credit": "Juri Janovski — HALVETH (Juri-Halveth)",
   "report": "REPORT.md",
-  "review_method": "Existing source and GitHub Actions logs read; receipt extraction independently compared twice. No new device or network test.",
+  "review_method": "Provided CERT@VDE correspondence, reported local IPC findings, existing source and GitHub Actions logs read. No new device or network execution.",
   "source_files": [
     {
       "repository": "Juri-Halveth/jbl-wan-proof",
@@ -105,16 +105,18 @@
     }
   ],
   "interpretation": {
-    "observed": "Supplied pairing material over an owner-created temporary tunnel; microphone.gain 75 to 74 with readback and restoration to 75 with readback. Separate direct TCP test timed out.",
-    "unestablished": [
-      "Exact vendor binary/version linkage",
-      "Pairing bypass or unauthorized access",
-      "Default direct Internet exposure",
-      "Physical microphone effect or audio capture",
-      "Current release affected or fixed"
+    "case_status": "Engineering-validated issue as communicated by CERT@VDE on 2026-09-24, QuantumENGINE 2.7.8 confirmed affected.",
+    "additional_runtime_logs": "The retained GitHub-hosted tunnel witness used supplied pairing material and read back gain 75→74→75; the separate direct TCP 57120 test timed out. These are additional experiments, not the entire local IPC case.",
+    "still_unestablished_in_supplied_material": [
+      "A concrete CVE identifier or numeric CVSS score",
+      "An actually shipped fix release for this case",
+      "Runtime affected/fixed status of version 2.8.6 or 2.9.4",
+      "Binary-hash linkage of the retained tunnel receipts",
+      "Default direct Internet exposure or remote code execution"
     ],
-    "reported_disclosure_history": "Dates and recipients are attributed to the operational account provided by Juri; original correspondence is not in this repository.",
-    "payment_statement": "No payment received is attributed to Juri, not established by these logs."
+    "disclosure_history": "Concrete coordination inquiry and acknowledgement dated 2026-09-02 in supplied correspondence; first HARMAN report on 2026-08-09 is described in the finder message.",
+    "reward_decision": "CERT@VDE message dated 2026-10-19 conveys HARMAN rejection of reward eligibility; this does not retract technical validation.",
+    "finder_credit": "CERT@VDE message dated 2026-10-19 confirms future finder credit; preferred credit Juri Janovski — HALVETH."
   },
   "missing_historical_logs": {
     "period": "2026-08",
@@ -122,5 +124,81 @@
     "run_metadata_available": true,
     "success_does_not_imply_connection": true
   },
-  "hash_meaning": "Hashes bind the extracted published receipt files, not the authenticity of the whole historical experiment."
+  "hash_meaning": "Hashes bind the referenced public extracts/receipts or supplied text bytes, not mail-transport authenticity or the complete historical experiment.",
+  "revised_on": "2026-11-27",
+  "coordination_reference": "CERT@VDE#642251",
+  "correspondence": {
+    "file": "evidence/CERT-VDE-CORRESPONDENCE.md",
+    "published_excerpt_sha256": "eb90362fd20fd65b9ac0b8ffcf745bc40fc5c6cd892990e38a58b5e21b284b70",
+    "source_kind": "Finder-supplied correspondence text; selected exact excerpts, contact details and signatures omitted",
+    "source_bytes": 10174,
+    "source_sha256": "dfff8fadfd398b0833def99c0e20d199e2a38b48d1f7d3d9eb207105d6d0d1b0",
+    "events": [
+      {
+        "date": "2026-09-02",
+        "speaker": "CERT@VDE",
+        "status": "Report received and coordination with HARMAN undertaken"
+      },
+      {
+        "date": "2026-09-24",
+        "speaker": "CERT@VDE conveying engineering assessment",
+        "status": "Issue validated; QuantumENGINE 2.7.8 confirmed affected; proposed severity accepted",
+        "numeric_cvss": null
+      },
+      {
+        "date": "2026-09-24",
+        "speaker": "CERT@VDE conveying remediation plan",
+        "status": "Corrective software update under development, planned for December 2026",
+        "release_plan": "2026-12",
+        "shipped_release_confirmed": false
+      },
+      {
+        "date": "2026-09-24",
+        "speaker": "Juri Janovski",
+        "status": "Requested credit: Juri Janovski — HALVETH; GitHub Juri-Halveth"
+      },
+      {
+        "date": "2026-10-19",
+        "speaker": "CERT@VDE conveying HARMAN reward decision",
+        "status": "Submission does not qualify for reward under bug bounty program",
+        "does_not_retract_technical_validation": true
+      },
+      {
+        "date": "2026-10-19",
+        "speaker": "CERT@VDE",
+        "status": "Finder credit in advisory and vulnerability record promised"
+      },
+      {
+        "date": null,
+        "speaker": "CERT@VDE",
+        "thread_context": "Reply following the quoted 2026-10-22 inquiry; own send timestamp absent",
+        "status": "Advisory not yet published; no concrete date; advisory and CVE links to follow publication",
+        "concrete_cve_id": null
+      }
+    ]
+  },
+  "affected_version_confirmation": {
+    "product": "JBL QuantumENGINE",
+    "version": "2.7.8",
+    "date": "2026-09-24",
+    "basis": "CERT@VDE correspondence conveying engineering confirmation"
+  },
+  "local_report": {
+    "date": "2026-09-02",
+    "mechanism": "Separately compiled non-elevated local process with arbitrary self-declared client name opens remote-control IPC, reads pairing/device metadata, reuses owner pairing state and changes one owner-headset setting with readback, rollback and readback.",
+    "second_existing_nonadmin_sid": "Bounded pairing-metadata read and FOTA-namespace registration in no-command mode; no setting-change claim for this second SID.",
+    "version_2_8_6": "Static comparison reported; no claim of demonstrated dynamic vulnerability; clean runtime retest open.",
+    "not_tested_effects": [
+      "firmware",
+      "file",
+      "persistence",
+      "denial of service",
+      "code execution"
+    ]
+  },
+  "correction": {
+    "erratum": "ERRATUM-20261127.md",
+    "superseded_documentation_commit": "1e5d60ec128551db17dc8a10e23a666187b521fd",
+    "reason": "Prior overall assessment overgeneralized the limited tunnel/TCP evidence and omitted the provided coordinator confirmation."
+  }
 }
