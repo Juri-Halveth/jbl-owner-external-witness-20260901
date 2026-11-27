@@ -1,21 +1,19 @@
-[Original / Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
+[Deutsch](README.md) · [English](README.en.md) · [Русский](README.ru.md)
 
-# jbl-owner-external-witness-20260901
+# JBL QuantumENGINE / QuantumServer research by Juri
 
-**Concise project guide · EN / RU**
+**Juri (Juri-Halveth) · Updated 27 November 2026**
 
-A private repository controlled by its owner. No source README was present in the audited snapshot, so this guide adds navigation without inventing a technical description, execution result or external finding.
+[Full research report, German](REPORT.md) · [Evidence and source index](evidence/index.json) · [Related WAN workflow](https://github.com/Juri-Halveth/jbl-wan-proof)
 
-The recorded commit is available to authorized readers. Access permissions and the original files remain unchanged; private evidence is outside this short guide.
+This repository contains the existing test clients and retained records from Juri's investigation of network control associated with JBL QuantumENGINE / QuantumServer.
 
-This manually edited guide summarizes the audited source. The original technical documentation remains the reference for commands, build requirements, exact versions and detailed evidence.
+On 1 September 2026, a GitHub-hosted client recorded `microphone.gain` changing **75 → 74 → 75**, with separate read requests confirming both the change and restoration. The client used an **owner-created temporary tunnel and supplied pairing material**. A separate direct TCP connection attempt to port **57120** timed out after **8009 ms**, without a connection or application payload.
 
-Private repository: access remains limited to authorized readers.
+The evidence includes the successful write-and-restore run, a read-only run, a failed intermediate run and the direct TCP test. The retained logs were reviewed for this publication; the tests were not rerun against a device.
 
-No README.md existed at the audited commit; the snapshot link therefore opens the recorded file tree.
+These records alone do not establish a pairing bypass, default Internet exposure or a breach of the intended privileges of a paired client. They do not identify an exact affected QuantumENGINE or QuantumServer build. Separate readback means another RPC in the same client, not a physical microphone measurement.
 
-## Start with the sources
+JBL's release notes reviewed on 27 November list **QuantumENGINE 2.9.4, dated 3 November 2026**. No fix statement specifically matching this report was found in the reviewed release notes or CERT@VDE's HARMAN list. Whether version 2.9.4 is affected was not tested. The full report preserves this distinction and attributes the supplied disclosure chronology and payment statement to Juri.
 
-- [Original technical documentation](README.md)
-- [Files at the audited commit](https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/tree/c83ede734c1498da3fc468d540f405d3799db722)
-- [Repository and current files](https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901)
+`external_witness.py` implements the paired read/write-and-restore experiment. `direct_wan_witness.py` attempts one TCP connection without application payload. The `evidence/` files are extracted historical receipts with an explicitly marked pairing-fingerprint redaction and links to their source runs.

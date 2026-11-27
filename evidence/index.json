@@ -1,0 +1,126 @@
+{
+  "schema": "halveth.jbl.public-evidence-index.v1",
+  "prepared_on": "2026-11-27",
+  "research_credit": "Juri (Juri-Halveth)",
+  "report": "REPORT.md",
+  "review_method": "Existing source and GitHub Actions logs read; receipt extraction independently compared twice. No new device or network test.",
+  "source_files": [
+    {
+      "repository": "Juri-Halveth/jbl-wan-proof",
+      "commit": "06916510e3bd9ab79fb423298c1ceca93ae65f9e",
+      "path": ".github/workflows/jbl-wan-proof.yml",
+      "blob_sha": "b291b14f0246825f5fd79077339a67b71637cb7d",
+      "url": "https://github.com/Juri-Halveth/jbl-wan-proof/blob/06916510e3bd9ab79fb423298c1ceca93ae65f9e/.github/workflows/jbl-wan-proof.yml"
+    },
+    {
+      "repository": "Juri-Halveth/jbl-owner-external-witness-20260901",
+      "commit": "c34a2a8cb58ba38b0d89b4cfa8d980af07cb84f0",
+      "path": ".github/workflows/direct-wan.yml",
+      "blob_sha": "9af2a8dced0906867648b8880edb1ee280652232",
+      "url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/blob/c34a2a8cb58ba38b0d89b4cfa8d980af07cb84f0/.github/workflows/direct-wan.yml"
+    },
+    {
+      "repository": "Juri-Halveth/jbl-owner-external-witness-20260901",
+      "commit": "c34a2a8cb58ba38b0d89b4cfa8d980af07cb84f0",
+      "path": ".github/workflows/witness.yml",
+      "blob_sha": "abe1de244e2d1f5115bc71d4702b1a2cd15b0f41",
+      "url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/blob/c34a2a8cb58ba38b0d89b4cfa8d980af07cb84f0/.github/workflows/witness.yml"
+    },
+    {
+      "repository": "Juri-Halveth/jbl-owner-external-witness-20260901",
+      "commit": "c34a2a8cb58ba38b0d89b4cfa8d980af07cb84f0",
+      "path": "direct_wan_witness.py",
+      "blob_sha": "8164684d32dd0231c4a022bb17b5795a4a7aaec2",
+      "url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/blob/c34a2a8cb58ba38b0d89b4cfa8d980af07cb84f0/direct_wan_witness.py"
+    },
+    {
+      "repository": "Juri-Halveth/jbl-owner-external-witness-20260901",
+      "commit": "c34a2a8cb58ba38b0d89b4cfa8d980af07cb84f0",
+      "path": "external_witness.py",
+      "blob_sha": "9fd2af5b77f50a96aa747329178a7635c3b7f9a2",
+      "url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/blob/c34a2a8cb58ba38b0d89b4cfa8d980af07cb84f0/external_witness.py"
+    }
+  ],
+  "receipts": [
+    {
+      "file": "evidence/33534671737.json",
+      "sha256": "62d1be2dd27c14c56170d6a2541e7c4dcd0f00d0837ccee32bb1a3a3d599ce3c",
+      "run_id": 33534671737,
+      "job_id": 99945968622,
+      "source_url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/actions/runs/33534671737/job/99945968622",
+      "executed_commit": "6fc23a74977e2cf964eea65fa0d2529d0226963b",
+      "redactions": [
+        "externalExecution.pairFrameSha256"
+      ]
+    },
+    {
+      "file": "evidence/33534747697.json",
+      "sha256": "677fa56e03727c1bf2657495559d87708d185489483d4861d5d342e0292cf75b",
+      "run_id": 33534747697,
+      "job_id": 99946209604,
+      "source_url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/actions/runs/33534747697/job/99946209604",
+      "executed_commit": "6fc23a74977e2cf964eea65fa0d2529d0226963b",
+      "redactions": [
+        "externalExecution.pairFrameSha256"
+      ]
+    },
+    {
+      "file": "evidence/33534876671.json",
+      "sha256": "bcd4a7d6e9d252427908e30edea8b59fd1a6d6dfe8b9f967034bf81975fd06f0",
+      "run_id": 33534876671,
+      "job_id": 99946634748,
+      "source_url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/actions/runs/33534876671/job/99946634748",
+      "executed_commit": "6fc23a74977e2cf964eea65fa0d2529d0226963b",
+      "redactions": [
+        "externalExecution.pairFrameSha256"
+      ]
+    },
+    {
+      "file": "evidence/33537188510.json",
+      "sha256": "0989be99e5fdb24cb94629ba180f5e3dd9466e7fd8e8f7cc93f501addcb04880",
+      "run_id": 33537188510,
+      "job_id": 99954266602,
+      "source_url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/actions/runs/33537188510/job/99954266602",
+      "executed_commit": "c83ede734c1498da3fc468d540f405d3799db722",
+      "redactions": []
+    }
+  ],
+  "wan_output_correction": {
+    "pull_request": "https://github.com/Juri-Halveth/jbl-wan-proof/pull/2",
+    "merged_commit": "273ae6c3fcbab0a0461fd81af604a93b6340cdd7",
+    "meaning": "Output labels and exact HTTP status token comparison corrected; no network execution represented by merge."
+  },
+  "manufacturer_sources": [
+    {
+      "url": "https://support.jbl.com/us/en/howto/jbl-quantum-engine-software-release-notes-us/000018780.html",
+      "read_on": "2026-11-27",
+      "observed_version": "2.9.4",
+      "release_date": "2026-11-03",
+      "specific_fix_confirmation_found": false
+    },
+    {
+      "url": "https://certvde.com/en/advisories/vendor/harman/",
+      "read_on": "2026-11-27",
+      "matching_quantumserver_entry_found": false
+    }
+  ],
+  "interpretation": {
+    "observed": "Supplied pairing material over an owner-created temporary tunnel; microphone.gain 75 to 74 with readback and restoration to 75 with readback. Separate direct TCP test timed out.",
+    "unestablished": [
+      "Exact vendor binary/version linkage",
+      "Pairing bypass or unauthorized access",
+      "Default direct Internet exposure",
+      "Physical microphone effect or audio capture",
+      "Current release affected or fixed"
+    ],
+    "reported_disclosure_history": "Dates and recipients are attributed to the operational account provided by Juri; original correspondence is not in this repository.",
+    "payment_statement": "No payment received is attributed to Juri, not established by these logs."
+  },
+  "missing_historical_logs": {
+    "period": "2026-08",
+    "job_log_response": "HTTP 410 on 2026-11-27",
+    "run_metadata_available": true,
+    "success_does_not_imply_connection": true
+  },
+  "hash_meaning": "Hashes bind the extracted published receipt files, not the authenticity of the whole historical experiment."
+}

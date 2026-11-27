@@ -1,0 +1,23 @@
+{
+  "schema": "halveth.jbl.public-receipt.v1",
+  "source": {
+    "run_id": 33537188510,
+    "job_id": 99954266602,
+    "source_url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/actions/runs/33537188510/job/99954266602",
+    "executed_commit": "c83ede734c1498da3fc468d540f405d3799db722"
+  },
+  "extracted_on": "2026-11-27",
+  "kind": "EXTRACTED_EXISTING_LOG_NOT_NEW_EXECUTION",
+  "redactions": [],
+  "receipt": {
+    "attemptCount": 1,
+    "elapsedMs": 8009,
+    "outcome": "TIMEOUT_WITHIN_BOUND_WINDOW",
+    "payloadBytesSent": 0,
+    "runner": "github-hosted-ubuntu",
+    "schema": "jbl.direct-wan-tcp-witness.v1",
+    "targetHostRedacted": true,
+    "targetPort": 57120,
+    "tcpConnected": false
+  }
+}

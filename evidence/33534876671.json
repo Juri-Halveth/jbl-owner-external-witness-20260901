@@ -1,0 +1,52 @@
+{
+  "schema": "halveth.jbl.public-receipt.v1",
+  "source": {
+    "run_id": 33534876671,
+    "job_id": 99946634748,
+    "source_url": "https://github.com/Juri-Halveth/jbl-owner-external-witness-20260901/actions/runs/33534876671/job/99946634748",
+    "executed_commit": "6fc23a74977e2cf964eea65fa0d2529d0226963b"
+  },
+  "extracted_on": "2026-11-27",
+  "kind": "EXTRACTED_EXISTING_LOG_NOT_NEW_EXECUTION",
+  "redactions": [
+    "externalExecution.pairFrameSha256"
+  ],
+  "receipt": {
+    "authorization": {
+      "pairAccepted": true,
+      "singleOwnerDeviceAccepted": true
+    },
+    "coverage": {
+      "allIntermediateStatesObserved": false,
+      "captureLoss": "UNKNOWN",
+      "claimCeiling": "SEPARATE_INTERNET_HOST_OVER_OWNER_CREATED_TEMPORARY_TUNNEL"
+    },
+    "errors": [],
+    "externalExecution": {
+      "environment": "GITHUB_HOSTED_RUNNER",
+      "pairFrameSha256": "[REDACTED: pairing-material fingerprint]",
+      "pairingMaterialPersistedOrPrinted": false,
+      "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+      "separateFromOwnerLan": true,
+      "tunnelUrlPersistedOrPrinted": false
+    },
+    "finishedAt": "2026-09-01T16:57:22.401343+00:00",
+    "mode": "reversible-write",
+    "schema": "jbl.external-internet-witness.receipt.v1",
+    "startedAt": "2026-09-01T16:57:19.510553+00:00",
+    "transition": {
+      "baseline": 75,
+      "candidate": 74,
+      "candidateAttempted": true,
+      "candidateIndependentReadbackObserved": true,
+      "rollbackAttempted": true,
+      "rollbackIndependentReadbackObserved": true,
+      "setting": "microphone.gain",
+      "terminalBaselineRestored": true
+    },
+    "transport": {
+      "subprotocol": "quantum_rc",
+      "websocketUpgradeObserved": true
+    }
+  }
+}
