@@ -4,7 +4,7 @@
 
 **Finder: Juri Janovski — HALVETH · Vorgang: CERT@VDE #642251 · Stand: 27. November 2026**
 
-**CERT@VDE bestätigte am 24. September 2026, dass das Engineering-Team den gemeldeten Fehler validiert hat und JBL QuantumENGINE 2.7.8 betroffen ist.** Die vorgeschlagene Schweregradeinschätzung wurde akzeptiert. Ein Korrekturupdate war damals in Entwicklung und für Dezember 2026 geplant.
+**Laut dem vom Finder bereitgestellten Korrespondenztext teilte CERT@VDE am 24. September 2026 mit, dass das Engineering-Team den gemeldeten Fehler validiert hat und JBL QuantumENGINE 2.7.8 betroffen ist.** Die vorgeschlagene Schweregradeinschätzung wurde akzeptiert. Ein Korrekturupdate war damals in Entwicklung und für Dezember 2026 geplant.
 
 **[Vollständiger Forschungsbericht](REPORT.md)** · **[Bestätigung und Korrespondenz](evidence/CERT-VDE-CORRESPONDENCE.md)** · [Korrektur der ersten Fassung](ERRATUM-20261127.md)
 
